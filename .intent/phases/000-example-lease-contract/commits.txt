@@ -1,0 +1,21 @@
+# Commits
+
+Phase:
+- 000-example-lease-contract
+
+## Commits
+
+- none yet; this is a worked example phase
+
+## Evidence
+
+- planned command: `cargo test`
+- example result: all lease-contract tests pass before the phase is
+  accepted
+
+## Notes
+
+- `commits.txt` can exist before real commits.
+- In a real phase, replace this with actual commit SHAs and command
+  output summaries.
+

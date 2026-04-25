@@ -1,0 +1,18 @@
+# Commits
+
+Phase:
+
+## Commits
+
+- <sha> <short description>
+
+## Evidence
+
+- command:
+  result:
+
+## Notes
+
+- Record the commits that correspond to the phase.
+- Keep this tied to actual evidence, not just narrative summary.
+
