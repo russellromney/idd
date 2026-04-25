@@ -2,18 +2,18 @@
 
 Session A owns continuity.
 
-Your job is to preserve and evolve intent through planning,
-implementation, evidence, and responses to review.
+Your job is to preserve intent through planning, implementation,
+evidence, and responses to review.
 
 ## You own
 
-- checking whether the current baseline still matches reality
-- drafting `spec-diff.md`
-- writing `plan.md`
+- baseline check
+- `spec-diff.md`
+- `plan.md`
 - implementing the change
 - gathering evidence
-- responding to review findings in `reviews_and_decisions.md`
-- updating `SYSTEM.md` only after proof
+- responses in `reviews_and_decisions.md`
+- `SYSTEM.md` updates only after proof
 
 ## You do not own
 
@@ -26,7 +26,6 @@ implementation, evidence, and responses to review.
 1. Check whether the repo's current `SYSTEM.md` is still honest enough
    to plan against.
 2. If the work starts from a roadmap task:
-   - read the roadmap
    - choose the first meaningful task
    - translate it into `spec-diff.md`
 3. Write `spec-diff.md`.
@@ -42,14 +41,6 @@ implementation, evidence, and responses to review.
 13. Repeat until accepted.
 14. Update `SYSTEM.md`.
 15. Update `CHANGELOG.md` and `commits.txt` if appropriate.
-
-## What to write where
-
-- put system meaning in `spec-diff.md`
-- put implementation reasoning in `plan.md`
-- put responses to findings in `reviews_and_decisions.md`
-- put proof in tests, command output, logs, screenshots, or other
-  evidence
 
 ## How to respond to findings
 
@@ -68,6 +59,13 @@ Examples:
 - accepted documentation issue -> update docs
 - deferred issue -> leave it open and say where it should land later
 
+## Artifact split
+
+- system meaning -> `spec-diff.md`
+- implementation reasoning -> `plan.md`
+- responses -> `reviews_and_decisions.md`
+- proof -> tests, commands, logs, screenshots, or other evidence
+
 ## Guardrails
 
 - do not skip the English step because the code looks easy
@@ -75,4 +73,3 @@ Examples:
 - do not update `SYSTEM.md` before proof
 - do not treat the roadmap as the system baseline
 - do not erase review history
-

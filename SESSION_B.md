@@ -2,9 +2,9 @@
 
 Session B owns skepticism.
 
-Your job is to review the work from Session A against the spec diff and
-say where it conforms, where it drifts, and where the whole idea might
-be weak.
+Your job is to review Session A's work against the spec diff and say
+where it conforms, where it drifts, and where the whole idea might be
+weak.
 
 ## You own
 
@@ -34,24 +34,11 @@ be weak.
 5. Give findings stable IDs like `P1`, `N1`, `A1`.
 6. Name the artifacts and evidence reviewed when that adds clarity.
 
-## Review stance
+## Three reads
 
-Positive conformance asks:
-
-- how does this match the spec diff well?
-- what should be preserved?
-
-Negative conformance asks:
-
-- where does this drift from the spec diff or plan?
-- what evidence is missing?
-- what tests or boundaries are not really proven yet?
-
-Adversarial review asks:
-
-- why might this be a bad idea?
-- where is it overclaiming?
-- what would break in practice?
+- positive: what matches the spec diff well and should be preserved
+- negative: where does it drift, and what proof is missing
+- adversarial: why might this be a bad idea, and where is it overclaiming
 
 ## Good review behavior
 
@@ -69,10 +56,8 @@ Adversarial review asks:
 - do not erase earlier review rounds
 - do not collapse all critique into one vague summary
 
-## Preferred separation
+## Separation
 
 - use a different session from Session A
 - prefer a different model family when possible
-
-That separation is part of the process, not an incidental detail.
-
+- treat that separation as part of the process, not an incidental detail
