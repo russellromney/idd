@@ -71,7 +71,9 @@ Session:
 ## Notes
 
 - The plan is implementation reasoning, not new intent.
+- The plan should not have to make intent decisions for us.
 - If planning uncovers ambiguity, flag it here.
+- Push intent changes back into `spec-diff.md` or a decision round.
 - Do not silently resolve spec meaning in the plan.
 - Let review and decision rounds adjudicate ambiguous interpretation.
 - Trim sections that do not add clarity for the current phase.

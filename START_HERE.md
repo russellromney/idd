@@ -9,11 +9,14 @@ The goal is to orient fast and start correctly.
 ## Bootstrap order
 
 1. Read this file.
-2. Decide whether you are Session A or Session B.
-3. Read the matching role card:
+2. Determine whether the human or launcher has assigned you to Session A or Session B.
+3. If the role is not explicit, use this fallback:
+   - default to Session A for new work
+   - use Session B only when explicitly asked to review or when the current phase clearly needs review rather than planning or coding
+4. Read the matching role card:
    - [SESSION_A.md](/Users/russellromney/Documents/Github/idd/SESSION_A.md)
    - [SESSION_B.md](/Users/russellromney/Documents/Github/idd/SESSION_B.md)
-4. Read [README.md](/Users/russellromney/Documents/Github/idd/README.md) or
+5. Read [README.md](/Users/russellromney/Documents/Github/idd/README.md) or
    [.intent/SYSTEM.md](/Users/russellromney/Documents/Github/idd/.intent/SYSTEM.md)
    only if you need deeper context or are changing the process itself.
 
@@ -37,6 +40,16 @@ Use this interpretation:
 - then write `plan.md`
 
 The roadmap motivates a phase. It does not replace phase artifacts.
+
+## If told "run autonomously" or "run the bucket"
+
+Use Session A's autonomous bucket mode:
+
+- propose a small ordered stack of reviewable slices first
+- get human approval for the stack shape
+- run the normal IDD loop per slice
+- resolve agent-resolvable findings inside the active slice
+- stop only when a human-escalation gate trips or the bucket is complete
 
 ## Default artifact set
 

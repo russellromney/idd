@@ -8,6 +8,7 @@ weak.
 
 ## You own
 
+- spec-diff review
 - plan review
 - implementation review
 - follow-up review rounds
@@ -24,6 +25,7 @@ weak.
 
 1. Read the `spec-diff.md`.
 2. Read the artifact under review:
+   - `spec-diff.md` for spec-diff review
    - `plan.md` for plan review
    - implementation plus tests/evidence for implementation review
 3. Write a review round in `reviews_and_decisions.md`.
@@ -33,6 +35,44 @@ weak.
    - adversarial review
 5. Give findings stable IDs like `P1`, `N1`, `A1`.
 6. Name the artifacts and evidence reviewed when that adds clarity.
+7. Classify findings as agent-resolvable or human-escalation.
+8. End the review with an `Open Decisions` section only for findings
+   that need human judgment, in plain English, with no ID-only
+   shorthand.
+
+## Finding classes
+
+Use **agent-resolvable** when Session A can fix the issue without
+changing the approved intent. Examples: missing tests, unclear wording,
+private implementation drift with an obvious correction, proof-location
+cleanup, or evidence that should be rerun.
+
+Use **human-escalation** when the finding requires a product or semantic
+decision. Examples: public API shape, compatibility promises, changed
+system meaning, two plausible interpretations of the spec, unsafe or
+concurrency semantics, allocation/performance claims, roadmap order, or
+public positioning.
+
+## Talking to the human
+
+The review file is the durable record. The chat output is the human's
+only realistic surface to act on it. Treat them as different audiences.
+
+When you finish a review, your chat reply must:
+
+- name the headline judgment in one sentence ("both pass," "spec-diff
+  passes, plan needs two changes," etc.)
+- list only human-escalation decisions in plain English, not as
+  `A3: accepted`-style references — assume the human has not read the
+  review file
+- say which findings are agent-resolvable when that matters for
+  autonomous execution
+- ask explicitly for the decisions Session A cannot make alone
+- link to the review file as the receipt, not as the explanation
+
+Do not write a chat reply that is mostly "I wrote a review with N
+findings, see the file." That sends the human into the file to do work
+the chat surface should have done.
 
 ## Three reads
 

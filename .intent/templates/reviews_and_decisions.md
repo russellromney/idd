@@ -7,10 +7,10 @@ This file is append-only.
 - Decision rounds are written in Session A in response to findings.
 - Do not rewrite earlier review text to make it look resolved.
 
-## Review Round 001
+## Intent Review 1
 
 Target:
-- plan review
+- spec-diff review
 
 Session:
 - B
@@ -20,7 +20,6 @@ Model family:
 
 Artifacts reviewed:
 - `spec-diff.md`
-- `plan.md`
 
 Verification reviewed:
 - ...
@@ -41,10 +40,10 @@ Verification reviewed:
 
 - ...
 
-## Decision Round 001
+## Intent Response 1
 
 Responding to:
-- Review Round 001
+- Intent Review 1
 
 Session:
 - A
@@ -73,10 +72,10 @@ Session:
 
 - ...
 
-## Review Round 002
+## Plan Review 1
 
 Target:
-- implementation review
+- plan review
 
 Session:
 - B
@@ -87,8 +86,6 @@ Model family:
 Artifacts reviewed:
 - `spec-diff.md`
 - `plan.md`
-- implementation files
-- tests
 
 Verification reviewed:
 - ...
@@ -109,10 +106,10 @@ Verification reviewed:
 
 - ...
 
-## Decision Round 002
+## Plan Response 1
 
 Responding to:
-- Review Round 002
+- Plan Review 1
 
 Session:
 - A
@@ -135,9 +132,73 @@ Session:
 
 - ...
 
+## Implementation Review 1
+
+Target:
+- implementation review
+
+Session:
+- B
+
+Model family:
+- ...
+
+Artifacts reviewed:
+- `spec-diff.md`
+- `plan.md`
+- implementation files
+- tests
+
+Verification reviewed:
+- ...
+
+### Positive conformance review
+
+- [P3] ...
+
+### Negative conformance review
+
+- [N3] ...
+
+### Adversarial review
+
+- [A3] ...
+
+### Review verdict
+
+- ...
+
+## Implementation Response 1
+
+Responding to:
+- Implementation Review 1
+
+Session:
+- A
+
+### Inputs
+
+- [P3]
+- [N3]
+- [A3]
+
+### Decisions
+
+- [D4] ...
+
+### Verification
+
+- ...
+
+### Decision verdict
+
+- ...
+
 ## Notes
 
 - Keep earlier review text intact.
 - Add new rounds instead of rewriting history.
 - If a finding is addressed later, reference its ID in the decision
   round instead of editing the finding itself.
+- Later follow-up rounds should continue the same naming pattern, for
+  example `Implementation Review 2` and `Implementation Response 2`.
