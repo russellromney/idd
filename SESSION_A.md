@@ -81,31 +81,35 @@ Use these labels explicitly:
 
 Examples:
 
-- follower reads leader's row after write -> direct proof
-- manifest exists after startup -> surrogate proof
-- "this should work because the cursor advanced" -> inferred only
+- the user-visible operation succeeds end to end -> direct proof
+- setup completed and helper artifacts exist -> surrogate proof
+- "this should work because internal state advanced" -> inferred only
 
 Do not close a phase on surrogate proof alone unless the spec is
 explicitly downgraded to say that behavior is not yet proved.
 
-## Default test expectation for HA and coordination work
+## Default test expectation for high-risk behavior
 
-For HA, replication, failover, startup sequencing, and routing work,
-expect at least one destructive end-to-end proof for each supported
-mode.
+For stateful, distributed, runtime-sensitive, recovery-oriented, or
+otherwise high-risk work, expect at least one canonical adversarial
+proof for each supported behavior or mode.
 
-That usually means some variant of:
+That proof should:
 
-1. open leader
-2. open follower
-3. write on leader
-4. confirm follower observes the result
-5. kill or demote leader
-6. confirm follower promotes
-7. confirm writes still work
+1. exercise the public behavior directly
+2. perturb the system in the way most likely to falsify the claim
+3. confirm the advertised outcome still happens
 
-If that test does not exist, be very careful about claiming the feature
-works.
+The perturbation depends on the system:
+
+- restart or crash a process
+- inject latency or partial failure
+- retry or reconnect through the public interface
+- run conflicting operations
+- force a cold start or first real operation
+
+If that kind of test does not exist, be very careful about claiming the
+feature works.
 
 ## How to respond to findings
 

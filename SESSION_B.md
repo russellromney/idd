@@ -56,10 +56,10 @@ For each claim, classify the current evidence:
 
 Examples of proof-gap findings:
 
-- the test proves bootstrap, not first write
-- the test proves local invariants, not failover
-- the test proves config validation, not runtime success
-- the tests cover one supported mode, not the other advertised mode
+- the test proves setup, not the first real operation
+- the test proves internal invariants, not the advertised recovery behavior
+- the test proves validation, not runtime success
+- the tests cover one advertised behavior, not the other supported one
 
 ## Good review behavior
 

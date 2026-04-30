@@ -19,9 +19,9 @@ behavior we actually care about.
 
 Examples:
 
-- bootstrap works, but the first real write does not
-- a manifest exists, but the follower never sees the leader's data
-- role wiring is consistent, but failover never completes
+- setup works, but the first real operation does not
+- a support artifact exists, but the user-visible behavior never happens
+- internal role or state wiring is consistent, but the external promise never completes
 - the tests prove plumbing, not the product behavior
 
 IDD exists to stop that.
@@ -90,18 +90,18 @@ Use these words explicitly.
 
 - directly demonstrates the behavior claimed in the spec
 - examples:
-  - leader writes, follower reads the row
-  - leader dies, follower promotes, writes still succeed
-  - HTTP client follows redirect and request succeeds
+  - a user action succeeds from end to end
+  - a failure is induced and the advertised recovery behavior occurs
+  - a public interface returns the exact promised result
 
 **Surrogate proof**
 
 - proves supporting facts nearby, but not the behavior itself
 - examples:
-  - manifest exists
-  - bootstrap completed
+  - setup completed
+  - an internal artifact exists
   - helper function unit tests pass
-  - mode validation rejects bad inputs
+  - input validation rejects bad values
 
 **Missing proof**
 
@@ -117,8 +117,8 @@ For every claimed behavior:
 
 If the answer is easy, the proof is not strong enough yet.
 
-That question is especially important for HA, replication, failover,
-coordination, and startup sequencing work.
+That question is especially important for stateful, distributed,
+runtime-sensitive, or recovery-oriented work.
 
 ## Session split
 
