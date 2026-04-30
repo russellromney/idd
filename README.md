@@ -1,43 +1,27 @@
 # idd
 
-Intent-Driven Development, pared down to the smallest process that still
-protects intent and proves behavior.
+Intent-Driven Development.
 
-This repo is a lightweight companion to the blog post
-[Intent-Driven Development](https://russellromney.com/blog/intent-driven-development/).
+Goal: keep intent clear and prove behavior.
 
-If you want to bootstrap a new session, start with
-[START_HERE.md](/Users/russellromney/Documents/Github/idd/START_HERE.md).
+Start with [START_HERE.md](/Users/russellromney/Documents/Github/idd/START_HERE.md).
 
-## The problem this process is trying to solve
+## Problem
 
-Code can compile, unit tests can pass, reviews can look careful, and the
-actual thing we meant to build can still be broken.
+Code can look good and still not do the thing we wanted.
 
-That usually happens because we prove nearby facts instead of the
-behavior we actually care about.
-
-Examples:
-
-- setup works, but the first real operation does not
-- a support artifact exists, but the user-visible behavior never happens
-- internal role or state wiring is consistent, but the external promise never completes
-- the tests prove plumbing, not the product behavior
-
-IDD exists to stop that.
+That usually happens because we prove nearby facts, not the behavior
+itself.
 
 ## Five rules
 
-1. `SYSTEM.md` is current truth, not aspiration.
-2. Every phase starts with a `spec-diff.md`.
-3. Every behavior claim needs a direct executable proof.
-4. Surrogate proof can support a claim, but cannot close it.
-5. `SYSTEM.md` only updates after direct proof.
+1. `SYSTEM.md` is current truth.
+2. Every phase starts with `spec-diff.md`.
+3. Every behavior claim needs direct proof.
+4. Surrogate proof helps, but does not close the claim.
+5. Update `SYSTEM.md` only after direct proof.
 
-If a claim does not have a direct proof, the phase can still ship code,
-but it cannot honestly claim that behavior is proved.
-
-## Default artifact set
+## Default files
 
 ```text
 .intent/
@@ -50,136 +34,61 @@ but it cannot honestly claim that behavior is proved.
       commits.txt
 ```
 
-Also included:
+## File roles
 
-- templates in
-  [`/.intent/templates/`](</Users/russellromney/Documents/Github/idd/.intent/templates>)
-- a worked example in
-  [`/.intent/phases/000-example-lease-contract/`](</Users/russellromney/Documents/Github/idd/.intent/phases/000-example-lease-contract>)
-- session bootstrap docs:
-  - [START_HERE.md](/Users/russellromney/Documents/Github/idd/START_HERE.md)
-  - [SESSION_A.md](/Users/russellromney/Documents/Github/idd/SESSION_A.md)
-  - [SESSION_B.md](/Users/russellromney/Documents/Github/idd/SESSION_B.md)
+- `SYSTEM.md`: current baseline
+- `spec-diff.md`: intended behavior change
+- `plan.md`: build plan and proof plan
+- `reviews_and_decisions.md`: append-only critique and responses
+- `commits.txt`: what landed and what proof existed
 
-## Artifact roles
+## Process
 
-- `SYSTEM.md`
-  proved baseline of the system today
-- `spec-diff.md`
-  intended behavior change for one phase
-- `plan.md`
-  implementation approach and proof plan
-- `reviews_and_decisions.md`
-  append-only critique and responses
-- `commits.txt`
-  what actually landed and what evidence existed
+1. State the behavior.
+2. Name the direct proof.
+3. Build the code.
+4. Try to falsify the claim.
+5. Call it done only if the proof holds.
 
-The files matter, but they are not the process. The process is:
+## Proof terms
 
-- state the intended behavior
-- name the direct proof
-- build the code
-- try to falsify the claim
-- only then call it done
+`direct proof`
+- proves the claimed behavior
 
-## Direct proof versus surrogate proof
+`surrogate proof`
+- proves a nearby fact
 
-Use these words explicitly.
+`missing proof`
+- no executable check proves the claim yet
 
-**Direct proof**
+## Review question
 
-- directly demonstrates the behavior claimed in the spec
-- examples:
-  - a user action succeeds from end to end
-  - a failure is induced and the advertised recovery behavior occurs
-  - a public interface returns the exact promised result
+For every claim, ask:
 
-**Surrogate proof**
+> How could this still be broken while the current tests pass?
 
-- proves supporting facts nearby, but not the behavior itself
-- examples:
-  - setup completed
-  - an internal artifact exists
-  - helper function unit tests pass
-  - input validation rejects bad values
-
-**Missing proof**
-
-- no executable check directly covers the claim yet
-
-Surrogate proof is useful. It is just not enough by itself.
-
-## The question every review must ask
-
-For every claimed behavior:
-
-> How could this still be completely broken while the current tests all pass?
-
-If the answer is easy, the proof is not strong enough yet.
-
-That question is especially important for stateful, distributed,
-runtime-sensitive, or recovery-oriented work.
-
-## Session split
-
-Session A owns:
-
-- baseline check
-- `spec-diff.md`
-- `plan.md`
-- implementation
-- evidence gathering
-- responses to review
-
-Session B owns:
-
-- skepticism
-- proof-audit review
-- implementation review
-- follow-up review rounds
-
-Prefer a different model family for Session B when possible.
+If the answer is easy, the proof is weak.
 
 ## Minimal loop
 
 1. Session A writes `spec-diff.md`.
-   It must name the behavior claims and the direct proof expected for
-   each claim.
 2. Session B reviews the spec.
-   Most importantly: are the claims clear, and is the proposed proof
-   actually direct?
 3. Session A writes `plan.md`.
-   The proof plan comes before implementation details.
 4. Session B reviews the plan.
-   Most importantly: does the plan actually produce the required proof?
 5. Session A implements and gathers evidence.
-6. Session B reviews the implementation and the evidence.
-   Most importantly: did the code prove the claimed behavior, or only a
-   surrogate?
+6. Session B reviews code and proof.
 7. Session A fixes accepted findings.
-8. Only then update `SYSTEM.md`, `commits.txt`, and optionally
-   `CHANGELOG.md`.
+8. Then update `SYSTEM.md` and `commits.txt`.
 
-## What a good phase looks like
-
-A good phase folder answers four simple questions:
+## A good phase answers four questions
 
 1. What behavior are we claiming?
 2. What does not change?
-3. What exact command or test directly proves the claim?
-4. What is still only inferred?
-
-If the folder cannot answer those questions quickly, it is probably too
-clever or too vague.
+3. What exact test or command proves the claim?
+4. What is still inferred?
 
 ## Keep it small
 
-Do not add more artifacts to compensate for weak proof.
+If proof is weak, fix proof.
 
-If verification is weak, fix verification.
-If the claim is fuzzy, fix the spec.
-If the plan is making semantic decisions, push them back into the spec
-or a decision round.
-
-The point is not to produce more process text. The point is to make it
-hard to lie to ourselves about whether the code does the thing we meant.
+Do not add more artifacts to hide weak verification.

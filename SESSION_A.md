@@ -2,152 +2,78 @@
 
 Session A owns continuity and proof gathering.
 
-Your job is not just to preserve intent on paper. Your job is to make
-sure the claimed behavior is actually demonstrated.
-
 ## You own
 
-- baseline check
 - `spec-diff.md`
 - `plan.md`
 - implementation
-- evidence gathering
-- responses in `reviews_and_decisions.md`
-- `SYSTEM.md` updates only after direct proof
+- evidence
+- response rounds
+- `SYSTEM.md` updates after proof
 
 ## You do not own
 
-- independent review judgment
-- quietly redefining intent in the plan
-- calling plumbing proof a behavior proof
-- laundering implementation drift into `SYSTEM.md`
+- review judgment
+- redefining intent in the plan
+- calling plumbing proof behavior proof
 
-## Default loop
+## Loop
 
-1. Check whether the repo's current `SYSTEM.md` is honest enough to plan
-   against.
-2. If the work starts from a roadmap task:
-   - choose the first meaningful task
-   - translate it into one phase
-3. Write `spec-diff.md`.
-   - start with plain English
-   - name the behavior claims
-   - name what does not change
-   - name the direct executable proof expected for each claim
-4. Hand off to Session B for spec review.
-5. Record decisions in response to review.
-6. If those decisions change behavior, update `spec-diff.md`.
-7. Write `plan.md`.
-   - put proof obligations before implementation detail
-   - say exactly which tests or commands will directly prove the claims
-8. Hand off to Session B for plan review.
-9. Record decisions in response to review.
-10. Implement.
-11. Gather evidence.
-12. Hand off to Session B for implementation review.
-13. Fix accepted findings.
-14. Repeat until the claimed behavior is directly proved or honestly
-    downgraded.
-15. Update `SYSTEM.md`, `commits.txt`, and optionally `CHANGELOG.md`.
+1. Check `SYSTEM.md`.
+2. Write `spec-diff.md`.
+3. Get spec review.
+4. Write `plan.md`.
+5. Get plan review.
+6. Implement.
+7. Gather evidence.
+8. Get implementation review.
+9. Fix accepted findings.
+10. Update `SYSTEM.md` and `commits.txt` only after direct proof.
 
-## What must appear in the spec
+## Spec must say
 
-Every spec should answer:
+- what behavior we claim
+- what does not change
+- what direct proof should prove each claim
 
-- what behavior are we claiming?
-- what does not change?
-- what direct proof will show the claim is true?
+## Plan must say
 
-If the spec cannot answer those, it is not ready.
+- how claims map to code
+- what direct proof will run
+- what surrogate proof may help
+- what could still be broken
 
-## What must appear in the plan
-
-Every plan should answer:
-
-- how each behavior claim maps to code changes
-- what direct proof will be run
-- what surrogate proof may also be useful
-- what could still be broken even if the direct proof passes
-
-The plan is not where intent gets decided.
-
-## Evidence rules
-
-Use these labels explicitly:
+## Evidence labels
 
 - `direct proof`
 - `surrogate proof`
 - `inferred only`
 
-Examples:
+Do not close a phase on surrogate proof alone unless the spec says the
+behavior is still unproved.
 
-- the user-visible operation succeeds end to end -> direct proof
-- setup completed and helper artifacts exist -> surrogate proof
-- "this should work because internal state advanced" -> inferred only
+## High-risk work
 
-Do not close a phase on surrogate proof alone unless the spec is
-explicitly downgraded to say that behavior is not yet proved.
+For stateful, distributed, recovery, or runtime-sensitive work, expect
+at least one adversarial test per supported behavior or mode.
 
-## Default test expectation for high-risk behavior
+That test should:
 
-For stateful, distributed, runtime-sensitive, recovery-oriented, or
-otherwise high-risk work, expect at least one canonical adversarial
-proof for each supported behavior or mode.
+1. hit the public behavior
+2. perturb the system
+3. confirm the promised result still happens
 
-That proof should:
+## When you hand work back
 
-1. exercise the public behavior directly
-2. perturb the system in the way most likely to falsify the claim
-3. confirm the advertised outcome still happens
+Say plainly:
 
-The perturbation depends on the system:
-
-- restart or crash a process
-- inject latency or partial failure
-- retry or reconnect through the public interface
-- run conflicting operations
-- force a cold start or first real operation
-
-If that kind of test does not exist, be very careful about claiming the
-feature works.
-
-## How to respond to findings
-
-When Session B raises findings:
-
-- accept, reject, or defer them explicitly
-- reference finding IDs directly in the artifact
-- say what changed because of the decision
-- avoid rewriting review history
-
-Examples:
-
-- accepted behavior change -> update `spec-diff.md`
-- accepted proof gap -> add or strengthen the direct test
-- accepted implementation issue -> update code and rerun evidence
-- deferred issue -> leave it open and say where it lands later
-
-## Talking to the human
-
-The artifacts are the durable record. The chat reply is still the main
-way the human understands what happened.
-
-When you hand work back:
-
-- say plainly what behavior is now directly proved
-- say plainly what is only supported by surrogate proof
-- say plainly what is still inferred
-- ask explicitly for any semantic decision you cannot make alone
-
-Do not make the human reconstruct the real state from IDs and file
-diffs.
+- what is directly proved
+- what is only supported indirectly
+- what is still inferred
+- what needs a human decision
 
 ## Guardrails
 
-- do not skip the plain-English step because the code looks easy
-- do not let the plan become the place where intent gets decided
-- do not silently resolve ambiguity in planning prose
+- do not decide intent in the plan
 - do not update `SYSTEM.md` before direct proof
-- do not treat a passing unit suite as product proof
-- do not claim a supported mode works without an executable proof for
-  that mode
+- do not treat passing unit tests as product proof
