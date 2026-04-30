@@ -4,21 +4,20 @@ Use this file when a new session is told:
 
 > look at `../idd` and init here
 
-The goal is to orient fast and start correctly.
+The goal is to orient fast and start with the right proof standard.
 
 ## Bootstrap order
 
 1. Read this file.
-2. Determine whether the human or launcher has assigned you to Session A or Session B.
-3. If the role is not explicit, use this fallback:
+2. Determine whether you are Session A or Session B.
    - default to Session A for new work
-   - use Session B only when explicitly asked to review or when the current phase clearly needs review rather than planning or coding
-4. Read the matching role card:
+   - use Session B when explicitly asked to review or audit proof
+3. Read the matching role card:
    - [SESSION_A.md](/Users/russellromney/Documents/Github/idd/SESSION_A.md)
    - [SESSION_B.md](/Users/russellromney/Documents/Github/idd/SESSION_B.md)
-5. Read [README.md](/Users/russellromney/Documents/Github/idd/README.md) or
-   [.intent/SYSTEM.md](/Users/russellromney/Documents/Github/idd/.intent/SYSTEM.md)
-   only if you need deeper context or are changing the process itself.
+4. Read [README.md](/Users/russellromney/Documents/Github/idd/README.md)
+   only if you need the full process context or are changing the
+   process itself.
 
 For most sessions, this file plus one role card should be enough.
 
@@ -26,30 +25,52 @@ For most sessions, this file plus one role card should be enough.
 
 - MUST not implement directly from `ROADMAP.md`
 - MUST review against `spec-diff.md`
-- MUST use `reviews_and_decisions.md`
-- MUST keep review text append-only
-- MUST not update `SYSTEM.md` before proof
+- MUST keep `reviews_and_decisions.md` append-only
+- MUST name direct executable proof for every behavior claim
+- MUST not treat surrogate proof as closure
+- MUST not update `SYSTEM.md` before direct proof
+
+## The main mindset shift
+
+Do not ask only:
+
+- is the code plausible?
+- do the unit tests pass?
+- are the artifacts tidy?
+
+Also ask:
+
+- what exact behavior is being claimed?
+- what exact test or command directly proves it?
+- how could this still be broken while the current tests pass?
+
+If you cannot answer those three questions, the phase is not ready to
+be called done.
 
 ## If told "start from the first roadmap task"
 
 Use this interpretation:
 
 - read the target repo's `ROADMAP.md`
-- pick the first real task that should become a meaningful phase
+- pick the first meaningful task that should become one phase
 - turn that roadmap item into a `spec-diff.md`
-- then write `plan.md`
+- name the behavior claims
+- name the direct proof expected for each claim
+- only then write `plan.md`
 
 The roadmap motivates a phase. It does not replace phase artifacts.
 
 ## If told "run autonomously" or "run the bucket"
 
-Use Session A's autonomous bucket mode:
+Use Session A's autonomous mode:
 
-- propose a small ordered stack of reviewable slices first
-- get human approval for the stack shape
-- run the normal IDD loop per slice
-- resolve agent-resolvable findings inside the active slice
-- stop only when a human-escalation gate trips or the bucket is complete
+- propose a small ordered stack of slices first
+- get human approval for the slice shape
+- make sure each slice has a concrete proof surface
+- run the normal loop per slice
+- stop when a semantic or product judgment is needed
+
+Autonomy is fine. Unproved behavior is not.
 
 ## Default artifact set
 
@@ -68,26 +89,29 @@ Use this unless the repo already has a better-established variant:
 
 Templates live in
 [`/.intent/templates/`](</Users/russellromney/Documents/Github/idd/.intent/templates>).
-One worked example lives in
-[`/.intent/phases/000-example-lease-contract/`](</Users/russellromney/Documents/Github/idd/.intent/phases/000-example-lease-contract>).
 
 ## Quick state machine
 
 If you are Session A:
 
 - if there is no phase yet, create one from the first roadmap task
-- if there is no `spec-diff.md`, write it
-- else if there is no `plan.md`, write it
-- else if there is no review round yet, stop for Session B
-- else if decisions are needed, write them
+- if there is no `spec-diff.md`, write behavior claims and proof
+  obligations first
+- else if there is no `plan.md`, write the proof plan before the build
+  plan
+- else if review is missing, stop for Session B
 - else if implementation is not done, implement
-- else if no implementation review exists, stop for Session B
-- else respond to findings
-- else update `SYSTEM.md`, `CHANGELOG.md`, and `commits.txt` as needed
+- else if direct proof is still missing, keep working and do not claim
+  done
+- else update `SYSTEM.md`, `commits.txt`, and optionally
+  `CHANGELOG.md`
 
 If you are Session B:
 
-- if `plan.md` exists and no plan review exists, review the plan
-- else if implementation exists and no implementation review exists,
-  review the implementation
-- else review the latest follow-up changes
+- if `spec-diff.md` exists and has no spec review, review the claims and
+  proof obligations
+- else if `plan.md` exists and has no plan review, review whether the
+  plan can actually produce the proof
+- else review implementation and evidence
+- in every case, ask how the feature could still be broken while the
+  current tests pass

@@ -9,6 +9,13 @@ Session:
 
 ...
 
+## Behavior-to-proof table
+
+- Claim:
+  direct proof:
+  surrogate proof:
+  current risk:
+
 ## Context
 
 ...
@@ -23,10 +30,6 @@ Session:
 
 - ...
 
-## Phase decisions
-
-- ...
-
 ## Proposed implementation approach
 
 - ...
@@ -36,11 +39,11 @@ Session:
 1. ...
 2. ...
 
-## Acceptance
+## Tests and evidence
 
 - ...
 
-## Tests and evidence
+## What could still be broken if the above passes
 
 - ...
 
@@ -72,8 +75,8 @@ Session:
 
 - The plan is implementation reasoning, not new intent.
 - The plan should not have to make intent decisions for us.
+- Direct proof comes before convenience tests.
 - If planning uncovers ambiguity, flag it here.
 - Push intent changes back into `spec-diff.md` or a decision round.
 - Do not silently resolve spec meaning in the plan.
-- Let review and decision rounds adjudicate ambiguous interpretation.
 - Trim sections that do not add clarity for the current phase.

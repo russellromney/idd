@@ -3,11 +3,10 @@
 This file is append-only.
 
 - Review rounds are written in Session B.
-- Prefer a different model family from Session A when possible.
-- Decision rounds are written in Session A in response to findings.
+- Decision / response rounds are written in Session A.
 - Do not rewrite earlier review text to make it look resolved.
 
-## Intent Review 1
+## Spec Review 1
 
 Target:
 - spec-diff review
@@ -15,35 +14,32 @@ Target:
 Session:
 - B
 
-Model family:
-- ...
-
 Artifacts reviewed:
 - `spec-diff.md`
 
 Verification reviewed:
 - ...
 
-### Positive conformance review
+### Positive conformance
 
 - [P1] ...
 
-### Negative conformance review
+### Negative conformance
 
 - [N1] ...
 
-### Adversarial review
+### Proof audit
 
-- [A1] ...
+- [A1] Claim X has direct proof / only surrogate proof / missing proof
 
 ### Review verdict
 
 - ...
 
-## Intent Response 1
+## Spec Response 1
 
 Responding to:
-- Intent Review 1
+- Spec Review 1
 
 Session:
 - A
@@ -56,19 +52,13 @@ Session:
 
 ### Decisions
 
-- [D1] Accept [N1]
-  Action: ...
-  Targets: ...
-
-- [D2] Defer [A1]
-  Action: ...
-  Targets: ...
+- [D1] ...
 
 ### Verification
 
 - ...
 
-### Decision verdict
+### Response verdict
 
 - ...
 
@@ -80,9 +70,6 @@ Target:
 Session:
 - B
 
-Model family:
-- ...
-
 Artifacts reviewed:
 - `spec-diff.md`
 - `plan.md`
@@ -90,15 +77,15 @@ Artifacts reviewed:
 Verification reviewed:
 - ...
 
-### Positive conformance review
+### Positive conformance
 
 - [P2] ...
 
-### Negative conformance review
+### Negative conformance
 
 - [N2] ...
 
-### Adversarial review
+### Proof audit
 
 - [A2] ...
 
@@ -122,13 +109,13 @@ Session:
 
 ### Decisions
 
-- [D3] ...
+- [D2] ...
 
 ### Verification
 
 - ...
 
-### Decision verdict
+### Response verdict
 
 - ...
 
@@ -140,9 +127,6 @@ Target:
 Session:
 - B
 
-Model family:
-- ...
-
 Artifacts reviewed:
 - `spec-diff.md`
 - `plan.md`
@@ -152,17 +136,18 @@ Artifacts reviewed:
 Verification reviewed:
 - ...
 
-### Positive conformance review
+### Positive conformance
 
 - [P3] ...
 
-### Negative conformance review
+### Negative conformance
 
 - [N3] ...
 
-### Adversarial review
+### Proof audit
 
-- [A3] ...
+- [A3] For each behavior claim, say whether the evidence is direct,
+  surrogate, or missing.
 
 ### Review verdict
 
@@ -184,13 +169,13 @@ Session:
 
 ### Decisions
 
-- [D4] ...
+- [D3] ...
 
 ### Verification
 
 - ...
 
-### Decision verdict
+### Response verdict
 
 - ...
 
@@ -198,7 +183,7 @@ Session:
 
 - Keep earlier review text intact.
 - Add new rounds instead of rewriting history.
-- If a finding is addressed later, reference its ID in the decision
+- If a finding is addressed later, reference its ID in the response
   round instead of editing the finding itself.
-- Later follow-up rounds should continue the same naming pattern, for
-  example `Implementation Review 2` and `Implementation Response 2`.
+- The most important implementation-review question is whether the code
+  directly proved the claimed behavior or only proved nearby facts.
