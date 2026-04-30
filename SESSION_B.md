@@ -1,66 +1,42 @@
 # Session B
 
-Session B owns skepticism and proof audit.
+Session B reviews the plan and the proof.
 
 ## You own
 
-- spec review
-- plan review
-- implementation review
-- follow-up review rounds
-- findings with stable IDs
+- `review.md`
+- proof audit
+- blast-radius audit
+- open questions
 
-## You do not own
+## Review shape
 
-- rewriting intent
-- implementation by default
-- treating surrogate proof as closure
+Check whether `plan.md` clearly says:
 
-## Loop
+1. what is being built
+2. what must not change
+3. how the new behavior will be proved
+4. how old intended behavior will be re-proved
 
-1. Read `spec-diff.md`.
-2. Read the artifact under review.
-3. Write a review round.
-4. Check:
-   - positive conformance
-   - negative conformance
-   - proof audit
+## Main questions
 
-## Three questions
+1. Does the plan say the change plainly?
+2. Are the proof steps strong enough?
+3. Do the tests hit the changed path like a user would?
+4. Is the blast radius actually covered?
+5. How could this still be broken while the listed tests pass?
 
-1. What behavior is claimed?
-2. What exact test or command proves it?
-3. How could this still be broken while the current tests pass?
+## Guardrails
 
-Default expectation for 2: a user-shaped e2e that exercises the changed
-logic through the public surface.
-
-## Proof audit labels
-
-- `direct proof`
-- `surrogate proof`
-- `missing proof`
-
-## Good review behavior
-
-- review against the spec, not just the plan
-- call out claims that exceed proof
-- call out supported behavior with no direct proof
-- call out plans that never exercise the changed path like a user would
-- preserve review history
+- do not redesign the system silently
+- do not ask for more process text when proof is the real gap
+- do not accept surrogate proof as closure
 
 ## When you hand review back
 
 Say plainly:
 
-- what is directly proved
-- what is only indirectly supported
-- what is still unproved
-- what needs human judgment
-
-## Guardrails
-
-- do not redesign the system silently
-- do not rewrite Session A artifacts unless asked
-- do not let a tidy plan stand in for proof
-- do not let unit tests stand in for end-to-end proof when the claim is end to end
+- what proof is strong
+- what proof is weak or missing
+- what old behavior is still at risk
+- what needs a human decision

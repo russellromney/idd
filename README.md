@@ -2,24 +2,21 @@
 
 Intent-Driven Development.
 
-Goal: keep intent clear and prove behavior.
+Goal: say what we are building, say what must not change, and prove
+both.
 
 Start with [START_HERE.md](/Users/russellromney/Documents/Github/idd/START_HERE.md).
 
-## Problem
+## Core questions
 
-Code can look good and still not do the thing we wanted.
+Every phase should answer, in plain English:
 
-That usually happens because we prove nearby facts, not the behavior
-itself.
+1. What are we building?
+2. What will not change?
+3. How will we prove it works?
+4. How will we prove we did not break earlier intent?
 
-## Five rules
-
-1. `SYSTEM.md` is current truth.
-2. Every phase starts with `spec-diff.md`.
-3. Every behavior claim needs direct proof.
-4. Surrogate proof helps, but does not close the claim.
-5. Update `SYSTEM.md` only after direct proof.
+If a phase cannot answer those clearly, it is not ready.
 
 ## Default files
 
@@ -28,29 +25,28 @@ itself.
   SYSTEM.md
   phases/
     0001-phase-name/
-      spec-diff.md
       plan.md
-      reviews_and_decisions.md
+      review.md
       commits.txt
 ```
 
 ## File roles
 
-- `SYSTEM.md`: current baseline
-- `spec-diff.md`: intended behavior change
-- `plan.md`: build plan and proof plan
-- `reviews_and_decisions.md`: append-only critique and responses
+- `SYSTEM.md`: current truth
+- `plan.md`: what we are building, how we will build it, how we will
+  prove it
+- `review.md`: proof gaps, drift, blast radius, open questions
 - `commits.txt`: what landed and what proof existed
 
-## Process
+## Rules
 
-1. State the behavior.
-2. Name the direct proof.
-   Prefer an e2e test that exercises the changed logic like a user
-   would.
-3. Build the code.
-4. Try to falsify the claim.
-5. Call it done only if the proof holds.
+1. Do not implement from `ROADMAP.md`.
+2. `SYSTEM.md` is current truth, not wishes.
+3. Every changed behavior needs direct proof.
+4. Every risky change needs blast-radius proof.
+5. Prefer e2e that hits the changed path like a user would.
+6. Surrogate proof helps, but does not close the claim.
+7. Update `SYSTEM.md` only after proof.
 
 ## Proof terms
 
@@ -60,8 +56,44 @@ itself.
 `surrogate proof`
 - proves a nearby fact
 
+`blast-radius proof`
+- proves old intended behavior still holds
+
 `missing proof`
-- no executable check proves the claim yet
+- no executable proof yet
+
+## Main idea
+
+The process is not:
+
+- write artifacts
+- get review
+- pass a gate
+
+The process is:
+
+1. state the change
+2. state the non-change
+3. build it
+4. assault the invariant with tests
+5. keep going until the proof is real
+
+## Default proof shape
+
+A good plan usually includes:
+
+- unit tests for local logic
+- integration tests for joins between pieces
+- e2e tests for user-visible behavior
+- adversarial tests for risky paths
+
+For high-risk work, the default proof should include at least one e2e
+or integration flow that:
+
+1. hits the public path
+2. exercises the changed logic
+3. perturbs the system if needed
+4. confirms the promised result still happens
 
 ## Review question
 
@@ -70,30 +102,3 @@ For every claim, ask:
 > How could this still be broken while the current tests pass?
 
 If the answer is easy, the proof is weak.
-
-## Minimal loop
-
-1. Session A writes `spec-diff.md`.
-2. Session B reviews the spec.
-3. Session A writes `plan.md`.
-4. Session B reviews the plan.
-5. Session A implements and gathers evidence.
-6. Session B reviews code and proof.
-7. Session A fixes accepted findings.
-8. Then update `SYSTEM.md` and `commits.txt`.
-
-## A good phase answers four questions
-
-1. What behavior are we claiming?
-2. What does not change?
-3. What exact test or command proves the claim?
-4. What is still inferred?
-
-Default answer for 3: an e2e test or command that uses the system
-through its public surface and hits the changed path.
-
-## Keep it small
-
-If proof is weak, fix proof.
-
-Do not add more artifacts to hide weak verification.

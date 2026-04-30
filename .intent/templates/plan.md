@@ -2,85 +2,40 @@
 
 Phase:
 
-Session:
-- A
-
-## Goal
-
-...
-
-## Behavior-to-proof table
-
-- Claim:
-  direct proof:
-  user-shaped e2e:
-  surrogate proof:
-  current risk:
-
-## Context
-
-...
-
-## References
-
-- `SYSTEM.md`
-- `spec-diff.md`
-- ...
-
-## Mapping from spec diff to implementation
+## What we are building
 
 - ...
 
-## Proposed implementation approach
+## What will not change
 
 - ...
 
-## Build order
+## How we will build it
 
-1. ...
-2. ...
+- main code path:
+- key files:
+- risky seams:
+- build order:
 
-## Tests and evidence
+## How we will prove it works
 
-- ...
-- Prefer at least one e2e that uses the public surface and hits the
-  changed logic.
-- If no such e2e exists, say why.
+- direct proof:
+- unit proof:
+- integration proof:
+- e2e proof:
+- adversarial proof:
 
-## What could still be broken if the above passes
+## How we will prove we did not break earlier intent
 
-- ...
-
-## Traps
-
-- ...
-
-## Files likely to change
-
-- ...
-
-## Areas that should not be touched
-
-- ...
-
-## Assumptions and risks
-
-- ...
+- old behavior at risk:
+- regression proof:
+- blast-radius checks:
 
 ## Commands
 
 - ...
 
-## Ambiguities noticed during planning
-
-- ...
-
 ## Notes
 
-- The plan is implementation reasoning, not new intent.
-- The plan should not have to make intent decisions for us.
-- Direct proof comes before convenience tests.
-- If planning uncovers ambiguity, flag it here.
-- Push intent changes back into `spec-diff.md` or a decision round.
-- Do not silently resolve spec meaning in the plan.
-- Trim sections that do not add clarity for the current phase.
+- Prefer e2e that hits the changed path like a user would.
+- If that proof is missing, say why.

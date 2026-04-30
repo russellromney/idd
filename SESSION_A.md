@@ -1,83 +1,52 @@
 # Session A
 
-Session A owns continuity and proof gathering.
+Session A writes the plan, builds the code, and gathers proof.
 
 ## You own
 
-- `spec-diff.md`
 - `plan.md`
 - implementation
 - evidence
-- response rounds
 - `SYSTEM.md` updates after proof
 
-## You do not own
+## Plan shape
 
-- review judgment
-- redefining intent in the plan
-- calling plumbing proof behavior proof
+Your `plan.md` should answer:
 
-## Loop
+1. What are we building?
+2. What will not change?
+3. How will we build it?
+4. How will we prove it works?
+5. How will we prove we did not break earlier intent?
 
-1. Check `SYSTEM.md`.
-2. Write `spec-diff.md`.
-3. Get spec review.
-4. Write `plan.md`.
-5. Get plan review.
-6. Implement.
-7. Gather evidence.
-8. Get implementation review.
-9. Fix accepted findings.
-10. Update `SYSTEM.md` and `commits.txt` only after direct proof.
+## Proof expectations
 
-## Spec must say
+Plans should usually name:
 
-- what behavior we claim
-- what does not change
-- what direct proof should prove each claim
+- unit proof
+- integration proof
+- e2e proof
+- blast-radius proof
 
-## Plan must say
+Default proof for changed behavior:
 
-- how claims map to code
-- what direct proof will run
-- what user-shaped e2e will hit the changed logic
-- what surrogate proof may help
-- what could still be broken
+- an e2e or integration flow that uses the public path and hits the
+  changed logic
 
-## Evidence labels
+If you do not have that kind of proof, say why.
 
-- `direct proof`
-- `surrogate proof`
-- `inferred only`
+## Guardrails
 
-Do not close a phase on surrogate proof alone unless the spec says the
-behavior is still unproved.
-
-## High-risk work
-
-For stateful, distributed, recovery, or runtime-sensitive work, expect
-at least one adversarial test per supported behavior or mode.
-
-That test should:
-
-1. hit the public behavior
-2. perturb the system
-3. confirm the promised result still happens
-
-Default choice: an e2e that drives the system like a user would. If the
-plan does not use that kind of test, it should say why.
+- do not hide intent in implementation prose
+- do not treat helper tests as enough by themselves
+- do not update `SYSTEM.md` before direct proof
+- do not call the work done if the blast radius is unproved
 
 ## When you hand work back
 
 Say plainly:
 
+- what changed
+- what did not change
 - what is directly proved
-- what is only supported indirectly
-- what is still inferred
-- what needs a human decision
-
-## Guardrails
-
-- do not decide intent in the plan
-- do not update `SYSTEM.md` before direct proof
-- do not treat passing unit tests as product proof
+- what still needs proof
