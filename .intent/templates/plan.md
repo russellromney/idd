@@ -13,6 +13,7 @@ Session:
 
 - Claim:
   direct proof:
+  user-shaped e2e:
   surrogate proof:
   current risk:
 
@@ -42,6 +43,9 @@ Session:
 ## Tests and evidence
 
 - ...
+- Prefer at least one e2e that uses the public surface and hits the
+  changed logic.
+- If no such e2e exists, say why.
 
 ## What could still be broken if the above passes
 

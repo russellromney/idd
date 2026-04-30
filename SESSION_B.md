@@ -32,6 +32,9 @@ Session B owns skepticism and proof audit.
 2. What exact test or command proves it?
 3. How could this still be broken while the current tests pass?
 
+Default expectation for 2: a user-shaped e2e that exercises the changed
+logic through the public surface.
+
 ## Proof audit labels
 
 - `direct proof`
@@ -43,6 +46,7 @@ Session B owns skepticism and proof audit.
 - review against the spec, not just the plan
 - call out claims that exceed proof
 - call out supported behavior with no direct proof
+- call out plans that never exercise the changed path like a user would
 - preserve review history
 
 ## When you hand review back

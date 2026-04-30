@@ -40,6 +40,7 @@ Session A owns continuity and proof gathering.
 
 - how claims map to code
 - what direct proof will run
+- what user-shaped e2e will hit the changed logic
 - what surrogate proof may help
 - what could still be broken
 
@@ -62,6 +63,9 @@ That test should:
 1. hit the public behavior
 2. perturb the system
 3. confirm the promised result still happens
+
+Default choice: an e2e that drives the system like a user would. If the
+plan does not use that kind of test, it should say why.
 
 ## When you hand work back
 

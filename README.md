@@ -46,6 +46,8 @@ itself.
 
 1. State the behavior.
 2. Name the direct proof.
+   Prefer an e2e test that exercises the changed logic like a user
+   would.
 3. Build the code.
 4. Try to falsify the claim.
 5. Call it done only if the proof holds.
@@ -86,6 +88,9 @@ If the answer is easy, the proof is weak.
 2. What does not change?
 3. What exact test or command proves the claim?
 4. What is still inferred?
+
+Default answer for 3: an e2e test or command that uses the system
+through its public surface and hits the changed path.
 
 ## Keep it small
 
