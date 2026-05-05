@@ -5,6 +5,7 @@ Session A writes the plan, builds the code, and gathers proof.
 ## You own
 
 - `plan.md`
+- follow-up notes in `review.md` when needed
 - implementation
 - evidence
 - `SYSTEM.md` updates after proof
@@ -50,3 +51,14 @@ Say plainly:
 - what did not change
 - what is directly proved
 - what still needs proof
+
+## Review rounds
+
+Use `review.md` as one append-only file.
+
+Typical flow:
+
+1. `Plan Review 1`
+2. implement
+3. `Implementation Review 1`
+4. add later rounds only if needed

@@ -2,28 +2,57 @@
 
 Phase:
 
-## What looks right
+## Plan Review 1
+
+### What looks right
 
 - ...
 
-## Proof gaps
+### Proof gaps
 
 - ...
 
-## Blast-radius gaps
+### Blast-radius gaps
 
 - ...
 
-## How this could still be broken
+### How this could still be broken
 
 - ...
 
-## Open questions
+### Open questions
 
 - ...
 
-## Verdict
+### Verdict
 
-- ready
+- ready to build
+- needs plan changes
+
+## Implementation Review 1
+
+### What looks right
+
+- ...
+
+### Proof gaps
+
+- ...
+
+### Blast-radius gaps
+
+- ...
+
+### How this could still be broken
+
+- ...
+
+### Open questions
+
+- ...
+
+### Verdict
+
+- ready to land
 - needs stronger proof
 - needs scope change

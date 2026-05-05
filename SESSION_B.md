@@ -18,6 +18,14 @@ Check whether `plan.md` clearly says:
 3. how the new behavior will be proved
 4. how old intended behavior will be re-proved
 
+Write review rounds in one append-only `review.md`.
+
+Typical headings:
+
+- `Plan Review 1`
+- `Implementation Review 1`
+- `Plan Review 2` or `Implementation Review 2` if follow-up is needed
+
 ## Main questions
 
 1. Does the plan say the change plainly?

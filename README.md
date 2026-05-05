@@ -35,7 +35,7 @@ If a phase cannot answer those clearly, it is not ready.
 - `SYSTEM.md`: current truth
 - `plan.md`: what we are building, how we will build it, how we will
   prove it
-- `review.md`: proof gaps, drift, blast radius, open questions
+- `review.md`: append-only plan and implementation review rounds
 - `commits.txt`: what landed and what proof existed
 
 ## Rules
@@ -102,3 +102,15 @@ For every claim, ask:
 > How could this still be broken while the current tests pass?
 
 If the answer is easy, the proof is weak.
+
+## Review shape
+
+Use one `review.md` file per phase.
+
+Keep it append-only.
+
+It should usually contain:
+
+- `Plan Review 1`
+- `Implementation Review 1`
+- later follow-up rounds only if needed

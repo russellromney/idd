@@ -19,6 +19,7 @@ Use this when a session is told:
 - do not implement from `ROADMAP.md`
 - keep `SYSTEM.md` honest
 - write `plan.md` in plain English
+- keep `review.md` append-only
 - make proof explicit before coding
 - prefer user-shaped e2e for changed behavior
 - prove blast radius, not just the new path
@@ -33,7 +34,7 @@ Use this when a session is told:
    - what will not change
    - how we will prove the new behavior
    - how we will prove old behavior still holds
-5. Then get review.
+5. Then get `Plan Review 1` in `review.md`.
 
 ## Default files
 
