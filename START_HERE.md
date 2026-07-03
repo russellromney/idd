@@ -7,7 +7,7 @@ Use this when a session is told:
 ## Order
 
 1. Read this file.
-2. Decide if you are writing the plan or reviewing it.
+2. Decide if you are writing the intent/execution or reviewing it.
 3. Read the matching card:
    - [SESSION_A.md](/Users/russellromney/Documents/Github/idd/SESSION_A.md)
    - [SESSION_B.md](/Users/russellromney/Documents/Github/idd/SESSION_B.md)
@@ -17,33 +17,37 @@ Use this when a session is told:
 ## Hard rules
 
 - do not implement from `ROADMAP.md`
-- keep `SYSTEM.md` honest
-- write `plan.md` in plain English
+- write `spec-diff.md` before `execute.md`
+- write `execute.md` in plain English
 - keep `review.md` append-only
 - make proof explicit before coding
 - prefer user-shaped e2e for changed behavior
 - prove blast radius, not just the new path
+- planning artifact names, phase numbers, and phase names stay out of code
 
 ## If told "start from the roadmap"
 
 1. Read `ROADMAP.md`.
 2. Pick one meaningful task.
-3. Write `plan.md`.
+3. Write `spec-diff.md`.
 4. Include:
    - what we are building
    - what will not change
+5. Write `execute.md`.
+6. Include:
+   - how we will build it
    - how we will prove the new behavior
    - how we will prove old behavior still holds
-5. Then get `Plan Review 1` in `review.md`.
+7. Then get `Execution Review 1` in `review.md`.
 
 ## Default files
 
 ```text
 .intent/
-  SYSTEM.md
   phases/
     001-phase-name/
-      plan.md
+      spec-diff.md
+      execute.md
       review.md
       commits.txt
 ```

@@ -2,9 +2,13 @@
 
 Phase:
 
-## Plan Review 1
+## Execution Review 1
 
 ### What looks right
+
+- ...
+
+### Intent gaps
 
 - ...
 
@@ -13,6 +17,10 @@ Phase:
 - ...
 
 ### Blast-radius gaps
+
+- ...
+
+### Process leakage
 
 - ...
 
@@ -26,8 +34,9 @@ Phase:
 
 ### Verdict
 
-- ready to build
-- needs plan changes
+- ready to execute
+- needs intent changes
+- needs execution changes
 
 ## Implementation Review 1
 
@@ -40,6 +49,10 @@ Phase:
 - ...
 
 ### Blast-radius gaps
+
+- ...
+
+### Process leakage
 
 - ...
 

@@ -1,7 +1,13 @@
-# Plan
+# Execute
 
 Phase:
 - 000-example-lease-contract
+
+## Notes
+
+- This worked example combines intent and execution in one file.
+- In a real phase, the "What we are building" and "What will not change"
+  sections belong in `spec-diff.md`.
 
 ## What we are building
 

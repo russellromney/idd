@@ -1,28 +1,31 @@
 # Session A
 
-Session A writes the plan, builds the code, and gathers proof.
+Session A writes the intent and execution plan, builds the code, and gathers proof.
 
 ## You own
 
-- `plan.md`
+- `spec-diff.md`
+- `execute.md`
 - follow-up notes in `review.md` when needed
 - implementation
 - evidence
-- `SYSTEM.md` updates after proof
 
-## Plan shape
+## Execute shape
 
-Your `plan.md` should answer:
+Your `spec-diff.md` should answer:
 
 1. What are we building?
 2. What will not change?
-3. How will we build it?
-4. How will we prove it works?
-5. How will we prove we did not break earlier intent?
+
+Your `execute.md` should answer:
+
+1. How will we build it?
+2. How will we prove it works?
+3. How will we prove we did not break earlier intent?
 
 ## Proof expectations
 
-Plans should usually name:
+Execution plans should usually name:
 
 - unit proof
 - integration proof
@@ -40,7 +43,9 @@ If you do not have that kind of proof, say why.
 
 - do not hide intent in implementation prose
 - do not treat helper tests as enough by themselves
-- do not update `SYSTEM.md` before direct proof
+- do not use `execute.md` for discovery, auditing, or redefining intent
+- do not put planning artifact names, phase numbers, or phase names in
+  code comments, identifiers, or file names
 - do not call the work done if the blast radius is unproved
 
 ## When you hand work back
@@ -58,7 +63,7 @@ Use `review.md` as one append-only file.
 
 Typical flow:
 
-1. `Plan Review 1`
+1. `Execution Review 1`
 2. implement
 3. `Implementation Review 1`
 4. add later rounds only if needed

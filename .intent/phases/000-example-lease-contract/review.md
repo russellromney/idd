@@ -3,13 +3,13 @@
 Phase:
 - 000-example-lease-contract
 
-## Plan Review 1
+## Execution Review 1
 
 ### What looks right
 
 - The phase is narrow.
 - The contract is stated in plain English.
-- The plan says what will not change.
+- The execute plan says what will not change.
 
 ### Proof gaps
 
@@ -33,7 +33,7 @@ Phase:
 
 ### Verdict
 
-- needs plan changes
+- needs execution changes
 
 ## Implementation Review 1
 

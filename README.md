@@ -11,10 +11,10 @@ Start with [START_HERE.md](/Users/russellromney/Documents/Github/idd/START_HERE.
 
 Every phase should answer, in plain English:
 
-1. What are we building?
-2. What will not change?
-3. How will we prove it works?
-4. How will we prove we did not break earlier intent?
+1. What are we building? (`spec-diff.md`)
+2. What will not change? (`spec-diff.md`)
+3. How will we prove it works? (`execute.md`)
+4. How will we prove we did not break earlier intent? (`execute.md`)
 
 If a phase cannot answer those clearly, it is not ready.
 
@@ -22,31 +22,32 @@ If a phase cannot answer those clearly, it is not ready.
 
 ```text
 .intent/
-  SYSTEM.md
   phases/
     0001-phase-name/
-      plan.md
+      spec-diff.md
+      execute.md
       review.md
       commits.txt
 ```
 
 ## File roles
 
-- `SYSTEM.md`: current truth
-- `plan.md`: what we are building, how we will build it, how we will
-  prove it
+- `spec-diff.md`: the already-decided intent for one phase
+- `execute.md`: how we will build it and how we will prove it
 - `review.md`: append-only plan and implementation review rounds
 - `commits.txt`: what landed and what proof existed
 
 ## Rules
 
 1. Do not implement from `ROADMAP.md`.
-2. `SYSTEM.md` is current truth, not wishes.
+2. `spec-diff.md` states intent; `execute.md` states implementation.
 3. Every changed behavior needs direct proof.
 4. Every risky change needs blast-radius proof.
 5. Prefer e2e that hits the changed path like a user would.
 6. Surrogate proof helps, but does not close the claim.
-7. Update `SYSTEM.md` only after proof.
+7. Planning artifact names, phase numbers, and phase names must never
+   appear in code comments, identifiers, file names, or other
+   implementation details.
 
 ## Proof terms
 
@@ -80,7 +81,7 @@ The process is:
 
 ## Default proof shape
 
-A good plan usually includes:
+A good execution plan usually includes:
 
 - unit tests for local logic
 - integration tests for joins between pieces
@@ -111,6 +112,6 @@ Keep it append-only.
 
 It should usually contain:
 
-- `Plan Review 1`
+- `Execution Review 1`
 - `Implementation Review 1`
 - later follow-up rounds only if needed
