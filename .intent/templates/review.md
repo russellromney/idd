@@ -20,7 +20,7 @@ Phase:
 
 - ...
 
-### Process leakage
+### Artifact names in code?
 
 - ...
 
@@ -52,7 +52,7 @@ Phase:
 
 - ...
 
-### Process leakage
+### Artifact names in code?
 
 - ...
 

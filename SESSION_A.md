@@ -1,6 +1,6 @@
 # Session A
 
-Session A writes the intent and execution plan, builds the code, and gathers proof.
+Session A writes execute.md, builds, and proves.
 
 ## You own
 
@@ -21,7 +21,7 @@ Your `execute.md` should answer:
 
 ## Proof expectations
 
-Execution plans should usually name:
+Name these proofs:
 
 - unit proof
 - integration proof
@@ -30,19 +30,18 @@ Execution plans should usually name:
 
 Default proof for changed behavior:
 
-- an e2e or integration flow that uses the public path and hits the
-  changed logic
+- an e2e or integration flow on the public path that hits the changed
+  logic
 
-If you do not have that kind of proof, say why.
+If you do not have that, say why.
 
 ## Guardrails
 
-- do not hide intent in implementation prose
-- do not treat helper tests as enough by themselves
-- do not use `execute.md` for discovery, auditing, or redefining intent
-- do not put planning artifact names, phase numbers, or phase names in
-  code comments, identifiers, or file names
-- do not call the work done if the blast radius is unproved
+- do not hide intent in implementation details
+- helper tests are not enough alone
+- `execute.md` is not for discovery or auditing
+- no phase names or artifact names in code
+- blast radius must be proved
 
 ## When you hand work back
 

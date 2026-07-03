@@ -15,4 +15,3 @@ Phase:
 
 - Record the commits that correspond to the phase.
 - Keep this tied to actual evidence, not just narrative summary.
-

@@ -9,14 +9,14 @@ Start with [START_HERE.md](/Users/russellromney/Documents/Github/idd/START_HERE.
 
 ## Core questions
 
-Every phase should answer, in plain English:
+Every phase answers:
 
 1. What are we building?
 2. What will not change?
 3. How will we prove it works?
 4. How will we prove we did not break earlier intent?
 
-If a phase cannot answer those clearly, it is not ready.
+If these are unclear, the phase is not ready.
 
 ## Default files
 
@@ -31,23 +31,21 @@ If a phase cannot answer those clearly, it is not ready.
 
 ## File roles
 
-- `execute.md`: what we are building, how we will build it, and how we
-  will prove it
-- `review.md`: append-only execution and implementation review rounds
-- `commits.txt`: what landed and what proof existed
+- `execute.md`: what and how we build, and how we prove it
+- `review.md`: append-only reviews
+- `commits.txt`: what landed with what proof
 
 ## Rules
 
 1. Do not implement from `ROADMAP.md`.
-2. `execute.md` states intent and implementation, not discovery or
+2. `execute.md` is for intent and implementation. not discovery or
    auditing.
 3. Every changed behavior needs direct proof.
 4. Every risky change needs blast-radius proof.
-5. Prefer e2e that hits the changed path like a user would.
-6. Surrogate proof helps, but does not close the claim.
-7. Planning artifact names, phase numbers, and phase names must never
-   appear in code comments, identifiers, file names, or other
-   implementation details.
+5. Prefer user-shaped e2e for changed behavior.
+6. Surrogate proof is not enough.
+7. Never put planning artifact names, phase numbers, or phase names in
+   code.
 
 ## Proof terms
 
@@ -55,7 +53,7 @@ If a phase cannot answer those clearly, it is not ready.
 - proves the claimed behavior
 
 `surrogate proof`
-- proves a nearby fact
+- proves something nearby
 
 `blast-radius proof`
 - proves old intended behavior still holds
@@ -88,13 +86,9 @@ A good execute.md usually includes:
 - e2e tests for user-visible behavior
 - adversarial tests for risky paths
 
-For high-risk work, the default proof should include at least one e2e
-or integration flow that:
-
-1. hits the public path
-2. exercises the changed logic
-3. perturbs the system if needed
-4. confirms the promised result still happens
+For high-risk work, include one e2e or integration flow that hits the
+public path, exercises the changed logic, and confirms the promised
+result.
 
 ## Review question
 

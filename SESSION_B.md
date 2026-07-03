@@ -1,6 +1,6 @@
 # Session B
 
-Session B reviews the intent, execution plan, and proof.
+Session B reviews execute.md and the proof.
 
 ## You own
 
@@ -14,7 +14,7 @@ Session B reviews the intent, execution plan, and proof.
 Check whether `execute.md` clearly says:
 
 1. what is being built
-2. what must not change
+2. what will not change
 3. how the change will be built
 4. how the new behavior will be proved
 5. how old intended behavior will be re-proved
@@ -29,22 +29,21 @@ Typical headings:
 
 ## Main questions
 
-1. Does the execute plan state the intent plainly?
-2. Does the execute plan implement that intent, not something else?
+1. Does `execute.md` state the intent plainly?
+2. Does the implementation match that intent?
 3. Are the proof steps strong enough?
 4. Do the tests hit the changed path like a user would?
-5. Is the blast radius actually covered?
+5. Is the blast radius covered?
 6. How could this still be broken while the listed tests pass?
-7. Did any planning artifact names, phase numbers, or phase names leak
-   into code?
+7. Did any artifact names or phase identifiers leak into code?
 
 ## Guardrails
 
 - do not redesign the system silently
 - do not ask for more process text when proof is the real gap
 - do not accept surrogate proof as closure
-- reject any code that references planning artifact names, phase numbers,
-  or phase names in comments, identifiers, or file names
+- reject code that names artifacts, phase numbers, or phase names in
+  comments, identifiers, or file names
 
 ## When you hand review back
 

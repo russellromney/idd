@@ -37,8 +37,8 @@ Phase:
 
 ## Notes
 
-- This file is for execution: implementation and proof.
-- The intent above should already be decided before this file is written.
-- Do not use this file to discover, audit, or redefine intent.
-- Prefer e2e that hits the changed path like a user would.
-- If that proof is missing, say why.
+- For implementation and proof only.
+- Intent must be decided before this file.
+- No discovery or auditing here.
+- Prefer user-shaped e2e.
+- If e2e is missing, say why.

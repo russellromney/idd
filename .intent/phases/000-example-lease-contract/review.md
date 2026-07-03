@@ -11,6 +11,10 @@ Phase:
 - The contract is stated in plain English.
 - The execute plan says what will not change.
 
+### Intent gaps
+
+- ...
+
 ### Proof gaps
 
 - The direct proof should explicitly pin expired-renew behavior.
@@ -22,9 +26,13 @@ Phase:
 - Make sure release preserves fencing continuity.
 - Make sure inspect means "live lease now", not raw row read.
 
+### Artifact names in code?
+
+- ...
+
 ### How this could still be broken
 
-- A single-connection plan could miss shared-file drift.
+- A single-connection test could miss shared-file drift.
 - Release semantics could still quietly break fencing continuity.
 
 ### Open questions
@@ -53,6 +61,10 @@ Phase:
 
 - Release must preserve fencing continuity.
 - Inspect must stay time-aware.
+
+### Artifact names in code?
+
+- ...
 
 ### How this could still be broken
 
