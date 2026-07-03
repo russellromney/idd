@@ -33,7 +33,7 @@ If a phase cannot answer those clearly, it is not ready.
 
 - `execute.md`: what we are building, how we will build it, and how we
   will prove it
-- `review.md`: append-only plan and implementation review rounds
+- `review.md`: append-only execution and implementation review rounds
 - `commits.txt`: what landed and what proof existed
 
 ## Rules
@@ -81,7 +81,7 @@ The process is:
 
 ## Default proof shape
 
-A good execution plan usually includes:
+A good execute.md usually includes:
 
 - unit tests for local logic
 - integration tests for joins between pieces
