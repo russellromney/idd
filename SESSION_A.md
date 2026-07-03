@@ -4,7 +4,6 @@ Session A writes the intent and execution plan, builds the code, and gathers pro
 
 ## You own
 
-- `spec-diff.md`
 - `execute.md`
 - follow-up notes in `review.md` when needed
 - implementation
@@ -12,16 +11,13 @@ Session A writes the intent and execution plan, builds the code, and gathers pro
 
 ## Execute shape
 
-Your `spec-diff.md` should answer:
+Your `execute.md` should answer:
 
 1. What are we building?
 2. What will not change?
-
-Your `execute.md` should answer:
-
-1. How will we build it?
-2. How will we prove it works?
-3. How will we prove we did not break earlier intent?
+3. How will we build it?
+4. How will we prove it works?
+5. How will we prove we did not break earlier intent?
 
 ## Proof expectations
 

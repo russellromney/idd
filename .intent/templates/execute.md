@@ -2,10 +2,13 @@
 
 Phase:
 
-## Intent (from spec-diff.md)
+## What we are building
 
-- what we are building:
-- what will not change:
+- ...
+
+## What will not change
+
+- ...
 
 ## How we will build it
 
@@ -34,7 +37,8 @@ Phase:
 
 ## Notes
 
-- This file is for implementation and proof only.
+- This file is for execution: implementation and proof.
+- The intent above should already be decided before this file is written.
 - Do not use this file to discover, audit, or redefine intent.
 - Prefer e2e that hits the changed path like a user would.
 - If that proof is missing, say why.

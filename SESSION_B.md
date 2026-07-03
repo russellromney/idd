@@ -11,16 +11,13 @@ Session B reviews the intent, execution plan, and proof.
 
 ## Review shape
 
-Check whether `spec-diff.md` clearly says:
+Check whether `execute.md` clearly says:
 
 1. what is being built
 2. what must not change
-
-Check whether `execute.md` clearly says:
-
-1. how the change will be built
-2. how the new behavior will be proved
-3. how old intended behavior will be re-proved
+3. how the change will be built
+4. how the new behavior will be proved
+5. how old intended behavior will be re-proved
 
 Write review rounds in one append-only `review.md`.
 
@@ -32,7 +29,7 @@ Typical headings:
 
 ## Main questions
 
-1. Does the spec-diff state the intent plainly?
+1. Does the execute plan state the intent plainly?
 2. Does the execute plan implement that intent, not something else?
 3. Are the proof steps strong enough?
 4. Do the tests hit the changed path like a user would?

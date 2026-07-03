@@ -17,7 +17,6 @@ Use this when a session is told:
 ## Hard rules
 
 - do not implement from `ROADMAP.md`
-- write `spec-diff.md` before `execute.md`
 - write `execute.md` in plain English
 - keep `review.md` append-only
 - make proof explicit before coding
@@ -29,16 +28,14 @@ Use this when a session is told:
 
 1. Read `ROADMAP.md`.
 2. Pick one meaningful task.
-3. Write `spec-diff.md`.
+3. Write `execute.md`.
 4. Include:
    - what we are building
    - what will not change
-5. Write `execute.md`.
-6. Include:
    - how we will build it
    - how we will prove the new behavior
    - how we will prove old behavior still holds
-7. Then get `Execution Review 1` in `review.md`.
+5. Then get `Execution Review 1` in `review.md`.
 
 ## Default files
 
@@ -46,7 +43,6 @@ Use this when a session is told:
 .intent/
   phases/
     001-phase-name/
-      spec-diff.md
       execute.md
       review.md
       commits.txt

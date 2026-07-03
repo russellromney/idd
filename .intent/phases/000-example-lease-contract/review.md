@@ -29,7 +29,7 @@ Phase:
 
 ### Open questions
 
-- None after the plan clarifies release and inspect semantics.
+- None after the execute plan clarifies release and inspect semantics.
 
 ### Verdict
 
