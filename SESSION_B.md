@@ -37,11 +37,11 @@ Typical headings:
 6. How could this still be broken while the listed tests pass?
 7. Did any artifact names or phase identifiers leak into code?
 
-For work that can lose data or report false recovery, also use
-[DURABILITY.md](/Users/russellromney/Documents/Github/idd/DURABILITY.md).
-Review the full state and failure matrix before reviewing implementation
-details. If a state class is missing, return to the protocol and proof
-matrix instead of accepting another local patch.
+For substantial work, also use
+[PLANNING.md](/Users/russellromney/Documents/Github/idd/PLANNING.md).
+Review the full behavior and proof surface before implementation details.
+If one finding exposes a missing class, return to the plan and enumerate
+that class instead of accepting another local patch.
 
 ## Guardrails
 

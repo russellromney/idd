@@ -7,9 +7,9 @@ both.
 
 Start with [START_HERE.md](/Users/russellromney/Documents/Github/idd/START_HERE.md).
 
-For databases, recovery, migrations, filesystem publication, object
-storage, or other crash-sensitive state changes, use
-[DURABILITY.md](/Users/russellromney/Documents/Github/idd/DURABILITY.md).
+For substantial phases, use
+[PLANNING.md](/Users/russellromney/Documents/Github/idd/PLANNING.md) to
+resolve the design and proof surface before implementation.
 
 ## Core questions
 
@@ -50,8 +50,8 @@ If these are unclear, the phase is not ready.
 6. Surrogate proof is not enough.
 7. Never put planning artifact names, phase numbers, or phase names in
    code.
-8. For durable work, review the complete state-transition and failure
-   matrix before implementation.
+8. For substantial work, review the complete behavior and proof matrices
+   before implementation.
 
 ## Proof terms
 

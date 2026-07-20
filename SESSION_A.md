@@ -35,10 +35,10 @@ Default proof for changed behavior:
 
 If you do not have that, say why.
 
-For work that can lose data or report false recovery, follow
-[DURABILITY.md](/Users/russellromney/Documents/Github/idd/DURABILITY.md).
-Do not implement until the invariants, state-transition table, ownership
-rules, crash points, and proof matrix have passed execution review.
+For substantial work, follow
+[PLANNING.md](/Users/russellromney/Documents/Github/idd/PLANNING.md).
+Do not implement until the user outcome, lifecycle, behavior matrix,
+ownership, simplicity, and proof matrix have passed execution review.
 
 ## Guardrails
 
