@@ -13,6 +13,8 @@ Use this when a session is told:
    - [SESSION_B.md](/Users/russellromney/Documents/Github/idd/SESSION_B.md)
 4. Read [README.md](/Users/russellromney/Documents/Github/idd/README.md)
    only if you need more context.
+5. For work that can lose data or report false recovery, also read
+   [DURABILITY.md](/Users/russellromney/Documents/Github/idd/DURABILITY.md).
 
 ## Hard rules
 
@@ -23,6 +25,8 @@ Use this when a session is told:
 - prefer user-shaped e2e for changed behavior
 - prove blast radius, not just the new path
 - no phase names or artifact names in code
+- for durable state changes, approve the state and failure matrix before
+  implementation
 
 ## If told "start from the roadmap"
 
